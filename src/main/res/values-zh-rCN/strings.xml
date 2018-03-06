@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">话机测试</string>
+
+    <string name="confirm">确定</string>
+    <string name="back">返回</string>
+    <string name="options">选项</string>
+    <string name="test_backlight"><![CDATA[请按<确定>键改变背景灯光]]></string>
+    <string name="battery_level">当前电量:</string>
+    <string name="battery_scale">电池容量:</string>
+    <string name="battery_voltage">电池电压:</string>
+    <string name="battery_temperature">电池温度:</string>
+    <string name="unknown">未知状态</string>
+    <string name="charging">充电中</string>
+    <string name="discharging">放电中</string>
+    <string name="not_charging">未充电</string>
+    <string name="full">电池满</string>
+    <string name="plugged_ac">交流充电</string>
+    <string name="plugged_usb">USB充电</string>
+    <string name="plugged_wireless">无线充电</string>
+    <string name="health_good">良好</string>
+    <string name="health_overheat">过热</string>
+    <string name="health_dead">没电</string>
+    <string name="health_over_voltage">过电压</string>
+    <string name="health_unspecified_failure">未知状态</string>
+    <string name="chargeStatus">充电状态:</string>
+    <string name="pluggedType">充电类型:</string>
+    <string name="health">健康状况:</string>
+    <string name="tecnology">电池类型:</string>
+    <string name="battery_present">是否有电池:</string>
+    <string name="yes">有</string>
+    <string name="no">无</string>
+    <string name="melody_test">按方向键改变铃声类型</string>
+
+
+    <array name="test_type">
+        <item>1.自动测试</item>
+        <item>2.手动测试</item>
+    </array>
+
+    <array name="test_list">
+        <item>1.版本信息</item>
+        <item>2.屏幕测试</item>
+        <item>3.背景灯测试</item>
+        <item>4.电池状态测试</item>
+        <item>5.铃声测试</item>
+        <item>6.手柄测试</item>
+        <item>7.免提键测试</item>
+        <item>8.按键测试</item>
+        <item>9.信号测试</item>
+    </array>
+</resources>
