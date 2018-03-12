@@ -16,7 +16,7 @@ import com.flyscale.citmode.fragment.items.HandfreeFragment;
 import com.flyscale.citmode.fragment.items.HandsetFragment;
 import com.flyscale.citmode.fragment.items.KeyboardFragment;
 import com.flyscale.citmode.fragment.items.LcdFragment;
-import com.flyscale.citmode.fragment.items.MelodFragment;
+import com.flyscale.citmode.fragment.items.MelodyFragment;
 import com.flyscale.citmode.fragment.items.SignalFragment;
 import com.flyscale.citmode.fragment.items.VersionInfoFragment;
 
@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity {
         items[1] = new LcdFragment();
         items[2] = new BacklightFragment();
         items[3] = new BatteryFragment();
-        items[4] = new MelodFragment();
+        items[4] = new MelodyFragment();
         items[5] = new HandsetFragment();
         items[6] = new HandfreeFragment();
         items[7] = new KeyboardFragment();
@@ -64,6 +64,10 @@ public class MainActivity extends FragmentActivity {
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_CENTER:
             case KeyEvent.KEYCODE_MENU:
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+            case KeyEvent.KEYCODE_DPAD_UP:
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
                 Log.i(TAG, "mCurrentFragment=" + mCurentFragment);
                 if (mCurentFragment != null) {
                     mCurentFragment.onKeyUp(keyCode);

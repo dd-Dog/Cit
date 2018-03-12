@@ -39,7 +39,7 @@ public class VersionInfoFragment extends BaseFragment {
         String info = "";
         info += Build.PRODUCT;
         info += Build.DISPLAY;
-        Date date = new Date("");
+//        Date date = new Date("");
 
         return info;
     }

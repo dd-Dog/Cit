@@ -30,7 +30,7 @@
     <string name="yes">有</string>
     <string name="no">无</string>
     <string name="melody_test">按方向键改变铃声类型</string>
-
+    <string name="openloop">打开音频回路</string>
 
     <array name="test_type">
         <item>1.自动测试</item>

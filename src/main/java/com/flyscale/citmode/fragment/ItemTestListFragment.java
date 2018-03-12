@@ -92,7 +92,7 @@ public class ItemTestListFragment extends BaseFragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView item = (TextView) getLayoutInflater().inflate(R.layout.item, parent, false);
+            TextView item = (TextView) mActivity.getLayoutInflater().inflate(R.layout.item, parent, false);
             item.setText(mMainData[position % mMainData.length]);
             return item;
         }

@@ -29,6 +29,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="melody_test">Press arrow keys to change different sound</string>
+    <string name="openloop">Open Loopback</string>
 
 
     <array name="test_type">
@@ -45,5 +46,33 @@
         <item>7.Hanfree loop test</item>
         <item>8.Key test</item>
         <item>9.Signal strength</item>
+    </array>
+
+    <array name="keys">
+        <item>UP</item>
+        <item>DW</item>
+        <item>LF</item>
+        <item>RG</item>
+        <item>MN</item>
+        <item>BK</item>
+        <item>OK</item>
+        <item>K0</item>
+        <item>K1</item>
+        <item>K2</item>
+        <item>K3</item>
+        <item>K4</item>
+        <item>K5</item>
+        <item>K6</item>
+        <item>K7</item>
+        <item>K8</item>
+        <item>K9</item>
+        <item>*</item>
+        <item>\#</item>
+        <item>M1</item>
+        <item>M2</item>
+        <item>M3</item>
+        <item>M4</item>
+        <item>HF</item>
+        <item>SMS</item>
     </array>
 </resources>
