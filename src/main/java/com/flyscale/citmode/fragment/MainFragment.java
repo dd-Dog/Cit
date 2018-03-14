@@ -2,6 +2,7 @@ package com.flyscale.citmode.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -35,7 +36,10 @@ public class MainFragment extends BaseFragment {
 
     public void onKeyUp(int keyCode) {
         Log.i(TAG, "onKeyUp::keyCode=" + keyCode);
-        handlePos(mMainTree.getSelectedItemPosition());
+        if (keyCode == KeyEvent.KEYCODE_MENU ||
+                keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
+            handlePos(mMainTree.getSelectedItemPosition());
+        }
     }
 
     public View initView() {

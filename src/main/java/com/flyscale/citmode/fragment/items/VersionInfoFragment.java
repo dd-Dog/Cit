@@ -51,4 +51,10 @@ public class VersionInfoFragment extends BaseFragment {
             mActivity.remove(this);
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
 }

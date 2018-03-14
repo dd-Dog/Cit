@@ -32,11 +32,17 @@ public class HandsetFragment extends BaseFragment {
     public View initView() {
         View view = mActivity.getLayoutInflater().inflate(R.layout.fragment_versioninfo, null);
         TextView title = (TextView) view.findViewById(R.id.title);
-        title.setText(getResources().getStringArray(R.array.test_list)[0]);
+        title.setText(getResources().getStringArray(R.array.test_list)[5]);
         TextView content = (TextView) view.findViewById(R.id.content);
         content.setText(getResources().getString(R.string.openloop));
 
-        micLoopBack();
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                micLoopBack();
+            }
+        }.start();
         return view;
     }
 
@@ -94,9 +100,15 @@ public class HandsetFragment extends BaseFragment {
         m_record.release();
         m_record = null;
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
     @Override
     public void onKeyUp(int keyCode) {
+        switch (keyCode){
 
+        }
     }
 }

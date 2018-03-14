@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.BATTERY_STATS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +20,11 @@
         </activity>
 
         <receiver android:name=".CitReceiver">
+            <!--优先级的设定 MyReceiver2大于MyReceiver1，优先级的范围-1000~1000,值越大优先级越高-->
+            <intent-filter android:priority="1000">
+                <action android:name="com.flyscale.send.action.KEYCODE" />
+            </intent-filter>
+
             <intent-filter>
                 <action android:name="android.provider.Telephony.SECRET_CODE" />
                 <data
@@ -27,7 +32,10 @@
                     android:scheme="android_secret_code" />
             </intent-filter>
         </receiver>
-
+        <provider
+            android:authorities="com.flyscale.cit.provider"
+            android:name=".CitProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>

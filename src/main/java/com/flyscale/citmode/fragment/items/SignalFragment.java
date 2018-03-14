@@ -27,4 +27,9 @@ public class SignalFragment extends BaseFragment {
     public void onKeyUp(int keyCode) {
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
 }

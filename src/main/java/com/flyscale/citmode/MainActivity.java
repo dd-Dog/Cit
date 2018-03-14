@@ -1,5 +1,9 @@
 package com.flyscale.citmode;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -55,12 +59,22 @@ public class MainActivity extends FragmentActivity {
         items[6] = new HandfreeFragment();
         items[7] = new KeyboardFragment();
         items[8] = new SignalFragment();
+        //进入cit模式
+        SharedPreferences sp = getSharedPreferences("cit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("citmode", true);
+        edit.apply();
+
     }
 
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         Log.i(TAG, "onKeyUp::keyCode=" + keyCode);
+        if (mCurentFragment != null && mCurentFragment.getClass().getSimpleName().equals("KeyboardFragment")) {
+            mCurentFragment.onKeyUp(keyCode);
+            return true;
+        }
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_CENTER:
             case KeyEvent.KEYCODE_MENU:
@@ -89,6 +103,9 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onBackPressed() {
         Log.i(TAG, "onBackPressed");
+        if (mCurentFragment.getClass().getSimpleName().equals("KeyboardFragment")) {
+            return;
+        }
         super.onBackPressed();
     }
 
@@ -122,5 +139,15 @@ public class MainActivity extends FragmentActivity {
         fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();
         onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //退出cit模式
+        SharedPreferences sp = getSharedPreferences("cit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("citmode", false);
+        edit.apply();
     }
 }

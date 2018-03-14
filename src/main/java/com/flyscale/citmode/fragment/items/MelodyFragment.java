@@ -101,7 +101,11 @@ public class MelodyFragment extends BaseFragment {
             e.printStackTrace();
         }
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

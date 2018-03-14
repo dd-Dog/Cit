@@ -49,13 +49,15 @@
     </array>
 
     <array name="keys">
-        <item>UP</item>
-        <item>DW</item>
-        <item>LF</item>
-        <item>RG</item>
-        <item>MN</item>
-        <item>BK</item>
-        <item>OK</item>
+        <item>Up</item>
+        <item>Dw</item>
+        <item>Lf</item>
+        <item>Rg</item>
+        <item>Ok</item>
+        <item>Mn</item>
+        <item>Bk</item>
+        <item>Gr</item>
+        <item>Re</item>
         <item>K0</item>
         <item>K1</item>
         <item>K2</item>
@@ -68,11 +70,6 @@
         <item>K9</item>
         <item>*</item>
         <item>\#</item>
-        <item>M1</item>
-        <item>M2</item>
-        <item>M3</item>
-        <item>M4</item>
-        <item>HF</item>
-        <item>SMS</item>
+        <item>Hf</item>
     </array>
 </resources>

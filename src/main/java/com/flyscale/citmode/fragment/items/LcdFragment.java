@@ -33,7 +33,11 @@ public class LcdFragment extends BaseFragment {
         startTest();
         return mView;
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
     private void startTest() {
         flag = true;
         new Thread() {

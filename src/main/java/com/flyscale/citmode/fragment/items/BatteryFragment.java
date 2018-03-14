@@ -40,6 +40,7 @@ public class BatteryFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        mActivity.setCurrentFragment(this);
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         mIntentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
@@ -65,6 +66,7 @@ public class BatteryFragment extends BaseFragment {
             mActivity.remove(this);
         }
     }
+
 
     private BroadcastReceiver mBatteryReceiver = new BroadcastReceiver() {
         @Override

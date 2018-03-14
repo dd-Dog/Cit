@@ -19,6 +19,12 @@ public class HandfreeFragment extends BaseFragment {
         return initView();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
+
     public View initView() {
         return null;
     }

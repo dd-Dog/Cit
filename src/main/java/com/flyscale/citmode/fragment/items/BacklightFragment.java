@@ -58,6 +58,13 @@ public class BacklightFragment extends BaseFragment {
                 android.provider.Settings.System.SCREEN_BRIGHTNESS,
                 brightness);
     }
+    @Override
+    public void onResume() {
+        Log.i(TAG, "onResume");
+        super.onResume();
+        mActivity.setCurrentFragment(this);
+    }
+
 
     @Override
     public void onKeyUp(int keyCode) {
