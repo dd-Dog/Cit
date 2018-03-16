@@ -10,7 +10,6 @@
         android:layout_height="12px"
         android:background="@drawable/key_bg"
         android:padding="1px"
-        android:text="xx"
         android:textColor="#000"
         android:textSize="9px" />
 </FrameLayout>

@@ -31,6 +31,10 @@
     <string name="no">无</string>
     <string name="melody_test">按方向键改变铃声类型</string>
     <string name="openloop">打开音频回路</string>
+    <string name="search_success">Wifi模块可用</string>
+    <string name="search_failed">Wifi不可用</string>
+    <string name="wifitest">Wifi测试</string>
+    <string name="tip">按OK键开始测试</string>
 
     <array name="test_type">
         <item>1.自动测试</item>
@@ -47,5 +51,6 @@
         <item>7.免提键测试</item>
         <item>8.按键测试</item>
         <item>9.信号测试</item>
+        <item>10.Wifi测试</item>
     </array>
 </resources>

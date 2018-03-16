@@ -30,6 +30,10 @@
     <string name="no">No</string>
     <string name="melody_test">Press arrow keys to change different sound</string>
     <string name="openloop">Open Loopback</string>
+    <string name="search_success">Wifi OK</string>
+    <string name="search_failed">Wifi Failed</string>
+    <string name="wifitest">Wifi Test</string>
+    <string name="tip">Press OK to start</string>
 
 
     <array name="test_type">
@@ -46,6 +50,7 @@
         <item>7.Hanfree loop test</item>
         <item>8.Key test</item>
         <item>9.Signal strength</item>
+        <item>10.Wifi test</item>
     </array>
 
     <array name="keys">

@@ -51,7 +51,8 @@ public class HandsetFragment extends BaseFragment {
     public void micLoopBack() {
         //这两句话的作用是打开设备扬声器
         AudioManager service = (AudioManager) mActivity.getSystemService(Context.AUDIO_SERVICE);
-        service.setSpeakerphoneOn(true);
+        if (service != null)
+            service.setSpeakerphoneOn(false);
 
         int SAMPLE_RATE = 8000;
         int BUF_SIZE = 1024;
@@ -67,7 +68,7 @@ public class HandsetFragment extends BaseFragment {
         byte[] buffer = new byte[bufferSize];
 
         //创建音频采集设备，输入源是麦克风
-        m_record = new AudioRecord(MediaRecorder.AudioSource.MIC,
+        m_record = new AudioRecord(MediaRecorder.AudioSource.DEFAULT,
                 SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
                 AudioFormat.ENCODING_PCM_16BIT, bufferSize);
 
@@ -100,14 +101,16 @@ public class HandsetFragment extends BaseFragment {
         m_record.release();
         m_record = null;
     }
+
     @Override
     public void onResume() {
         super.onResume();
         mActivity.setCurrentFragment(this);
     }
+
     @Override
     public void onKeyUp(int keyCode) {
-        switch (keyCode){
+        switch (keyCode) {
 
         }
     }

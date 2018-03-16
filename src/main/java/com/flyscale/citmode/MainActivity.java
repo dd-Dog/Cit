@@ -1,10 +1,12 @@
 package com.flyscale.citmode;
 
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -23,6 +25,7 @@ import com.flyscale.citmode.fragment.items.LcdFragment;
 import com.flyscale.citmode.fragment.items.MelodyFragment;
 import com.flyscale.citmode.fragment.items.SignalFragment;
 import com.flyscale.citmode.fragment.items.VersionInfoFragment;
+import com.flyscale.citmode.fragment.items.WifiFragment;
 
 
 //CIT即Customer Interface Test，用户界面测试
@@ -39,7 +42,6 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
     }
 
     private void init() {
@@ -49,7 +51,7 @@ public class MainActivity extends FragmentActivity {
         fragmentTransaction.add(R.id.container, mMainFragment);
         fragmentTransaction.commit();
 
-        items = new BaseFragment[9];
+        items = new BaseFragment[10];
         items[0] = new VersionInfoFragment();
         items[1] = new LcdFragment();
         items[2] = new BacklightFragment();
@@ -59,6 +61,7 @@ public class MainActivity extends FragmentActivity {
         items[6] = new HandfreeFragment();
         items[7] = new KeyboardFragment();
         items[8] = new SignalFragment();
+        items[9] = new WifiFragment();
         //进入cit模式
         SharedPreferences sp = getSharedPreferences("cit", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sp.edit();
@@ -71,6 +74,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         Log.i(TAG, "onKeyUp::keyCode=" + keyCode);
+        wakeUpAndUnlock();
         if (mCurentFragment != null && mCurentFragment.getClass().getSimpleName().equals("KeyboardFragment")) {
             mCurentFragment.onKeyUp(keyCode);
             return true;
@@ -89,6 +93,19 @@ public class MainActivity extends FragmentActivity {
                 return true;
         }
         return super.onKeyUp(keyCode, event);
+    }
+
+    /**
+     * 亮屏并解锁
+     */
+    public void wakeUpAndUnlock() {
+        KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        KeyguardManager.KeyguardLock kl = km.newKeyguardLock("unLock");
+//        kl.disableKeyguard();
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_DIM_WAKE_LOCK, "bright");
+        wl.acquire();
+        wl.release();
     }
 
 
@@ -139,6 +156,17 @@ public class MainActivity extends FragmentActivity {
         fragmentTransaction.remove(fragment);
         fragmentTransaction.commit();
         onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i(TAG, "onPause");
+        super.onPause();
+        //退出cit模式
+        SharedPreferences sp = getSharedPreferences("cit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putBoolean("citmode", false);
+        edit.apply();
     }
 
     @Override

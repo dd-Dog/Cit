@@ -28,7 +28,7 @@ public class CitReceiver extends BroadcastReceiver {
             SharedPreferences sp = context.getSharedPreferences("cit", Context.MODE_PRIVATE);
             boolean citmode = sp.getBoolean("citmode", false);
             if (citmode){
-                Log.i("CitReceiver", "当前是CIT模式，拦截广播");
+                Log.i("CitReceiver", "当前是CIT模式，拦截广播,keycode="+intent.getIntExtra("keycode", -1));
                 abortBroadcast();
             }
         }

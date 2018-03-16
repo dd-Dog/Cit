@@ -39,7 +39,7 @@ public class CitProvider extends ContentProvider{
     public void loadAllData() {
         allDatas.clear();
         for (int pos = 0; pos < 1; pos++) {
-            ArrayList<String> dataList = new ArrayList<>();
+            ArrayList<String> dataList = new ArrayList<String>();
             SharedPreferences sp = getContext().getSharedPreferences("cit", Context.MODE_PRIVATE);
             boolean enabled = sp.getBoolean("citmode", false);
             dataList.add((enabled ? 1 : 0) + "");

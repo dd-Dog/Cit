@@ -1,6 +1,7 @@
 package com.flyscale.citmode.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,12 +56,15 @@ public class ItemTestListFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.i(TAG, "onResume");
+        Log.i(TAG, "currentItem="+ mMainTree.getSelectedItemPosition());
         mActivity.setCurrentFragment(this);
     }
 
     @Override
     public void onKeyUp(int keyCode) {
-        switch (keyCode){
+        Log.i(TAG, "keyCode=" + keyCode);
+        switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_CENTER:
             case KeyEvent.KEYCODE_MENU:
                 mActivity.testItem(mMainTree.getSelectedItemPosition());
